@@ -7,6 +7,7 @@ const videoSchema = new Schema({
     mainActors: [String],
     rating: Number,
     description: String,
+    thumb: String,
 });
 
 const answerSchema = new Schema({

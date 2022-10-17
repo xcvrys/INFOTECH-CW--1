@@ -1,18 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import {Home,Details} from './pages';
+import {Home, Details, Quiz} from './pages';
 
 function App() {
   return (
-      <React.StrictMode>
           <BrowserRouter>
               <Routes>
-                <Route path={"/"} element={<Home/>}/>
-                  <Route path={"/details/:movieID"} element={<Details/>}/>
+                  <Route path={"/"} element={<Home/>}/>
+                  <Route path={"/details/:videoSlug"} element={<Details/>}/>
+                  <Route path={"/quiz/:videoSlug"} element={<Quiz/>}/>
               </Routes>
           </BrowserRouter>
-      </React.StrictMode>
   );
 }
 
