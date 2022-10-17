@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "634d8054d6c5534fdd605da1"
+  },
+  "slug": "troja",
+  "title": "Troja",
+  "director": "Wolfgang Petersen",
+  "mainActors": [
+    "Brad Pitt",
+    "Eric Bana",
+    "Orlando Bloom"
+  ],
+  "rating": 4,
+  "description": "W starożytnej Grecji namiętność, jaka połączyła parę najbardziej znanych kochanków w literaturze świata - Parysa, księcia Troi i Helenę , królową Sparty,  stała się przyczyną wojny, za której przyczyną legła w ruinach cała cywilizacja. Porwanie Heleny to obraza, której mąż, król Menelaos , nie może puścić płazem. Afront dla Menelaosa to afront dla całej rodziny brat męża królowej, potężny król Myken, Agamemnon, jednoczy wkrótce wokół siebie liczne plemiona Greków i prowadzi je pod Troję, by walczyć w obronie splamionego honoru swego brata. W rzeczywistości honor jest jedynie wygodnym pretekstem, prawdziwą przyczyną wyruszenia Agamemnona na wyprawę jest chciwość musi zdobyć Troję, by zdobyć panowanie nad morzem Egejskim, co zapewni jego królestwu niekwestionowane przywództwo. Troja to wielkie miasto, otoczone potężnymi murami, włada nim król Priam , broni go waleczny książę Hektor."
+}]
