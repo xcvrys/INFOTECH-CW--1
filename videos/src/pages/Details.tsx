@@ -10,9 +10,15 @@ export const Details:FC = () => {
 
     // page data
     const [selectedVideo, setSelectedVideo] = useState<Video|undefined>(undefined);
+    const [connectionError, setConnectionError] = useState<Error|null>(null);
+
+    if (connectionError !== null){
+        // terrible hack to get ErrorBoundary to catch errors from promises
+        throw connectionError;
+    }
 
     useEffect(() => {
-        axios.get('http://localhost:8080/video?slug='+videoSlug).then(r => setSelectedVideo(r.data)).catch(e => console.log("Connection error "+e.toString()));
+        axios.get('http://localhost:8080/video?slug='+videoSlug).then(r => setSelectedVideo(r.data)).catch(e => setConnectionError(e));
     },[videoSlug]);
 
     return (
@@ -30,6 +36,8 @@ export const Details:FC = () => {
                     </ul>
                     <h1>rating: {selectedVideo.rating}&#47;5</h1>
                     <button onClick={() => {navigate('/quiz/' + selectedVideo.slug!)}}>Play quiz</button>
+                    <br/>
+                    <button onClick={() => {navigate('/leaderboard/' + selectedVideo.slug!)}}>View leaderboard</button>
                 </div>
             )}
         </div>

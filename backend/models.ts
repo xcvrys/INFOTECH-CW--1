@@ -27,6 +27,12 @@ const quizSchema = new Schema({
     questions: [questionSchema]
 });
 
+const scoreSchema = new Schema({
+    slug: String,
+    username: String,
+    score: Number,
+})
+
 export const Video = mongoose.model("video",videoSchema);
 export const Quiz = mongoose.model("quiz",quizSchema);
-
+export const Score = mongoose.model("score",scoreSchema);

@@ -14,13 +14,15 @@ export const Quiz = () => {
     const [currentQuestion, setCurrentQuestion] = useState<number>(0);
     const [correctAnswers, setCorrectAnswers] = useState<number>(0);
     const [finishedPlaying, setFinishedPlaying] = useState<boolean>(false);
+    const [username, setUsername] = useState<string>('');
+    const [isScorePosted, setScorePosted] = useState<boolean>(false);
 
     // get questions from the API
     useEffect(() => {
         axios.get('http://localhost:8080/quiz?slug=' + videoSlug).then(d => setQuizData(d.data)).catch(e => console.log("Connection error "+ e.toString()));
     },[videoSlug]);
 
-    // helper function to clean up tsx
+    // helper functions to clean up tsx
     const checkQuestion = (questionID:number, answerID: number) => {
         if (quizData!.data.questions[questionID].answers[answerID].correct){
             alert("zajebiscie");
@@ -34,7 +36,9 @@ export const Quiz = () => {
         }
         setCurrentQuestion(currentQuestion+1);
     }
-
+    const postScore = () => {
+        axios.post("http://localhost:8080/save_score",{slug: videoSlug, username: username, correctAnswers: correctAnswers}).then(() => setScorePosted(true));
+    }
     return (
         <div>
             {!isPlaying && (
@@ -58,6 +62,10 @@ export const Quiz = () => {
                     <h1>game over</h1>
                     <h1>correct answers {correctAnswers}</h1>
                     <h1>incorrect answers {quizData!.data.questions.length - correctAnswers}</h1>
+                    <input onInput={e => setUsername(e.currentTarget.value)} placeholder={"your name"}/>
+                    {!isScorePosted && (
+                        <button onClick={() => postScore()}> Save score</button>
+                    )}
                     <button onClick={() => navigate('/')}>go back</button>
                 </>
             )}
