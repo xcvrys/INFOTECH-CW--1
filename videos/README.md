@@ -1,5 +1,11 @@
 # Getting Started with Create React App
 
+# RUN SASS
+
+```bash
+sass -w styles/scss:styles/css
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
