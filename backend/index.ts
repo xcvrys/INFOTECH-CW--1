@@ -7,6 +7,7 @@ import { QUIZ_CORRECT_ANSWER_POINTS } from "./consts";
 const app = express()
 app.use(morgan('dev'));
 app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 
 app.get('/videos', async (req, res) => {

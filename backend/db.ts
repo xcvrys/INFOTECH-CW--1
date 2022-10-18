@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { Quiz, Score, Video } from "./models";
 
-mongoose.connect("mongodb://admin:admin@localhost:27017/videosAppData?authSource=admin&authMechanism=DEFAULT").then(() => { });
+mongoose.connect("mongodb://admin:admin@mongodb:27017/videosAppData?authSource=admin&authMechanism=DEFAULT").then(() => { });
 
 export const getAllVideosPreview = async () => {
     return Video.find({}, { slug: 1, title: 1, thumb: 1, director: 1, rating: 1 });
