@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import QuizData from "../types/QuizData";
 import {useNavigate, useParams} from "react-router-dom";
 import axios from "axios";
+import style from '../styles/css/Quizz.module.css'
 
 export const Quiz = () => {
     // hooks
@@ -41,11 +42,15 @@ export const Quiz = () => {
     }
 
     return (
-        <div>
+        <div className={style.main}>
             {!isPlaying && (
                 <>
-                    <h1>check your knowledge of {quizData !== undefined ? quizData.title : "Loading..."}</h1>
-                    <button onClick={() => setIsPlaying(true)}>go</button>
+                    <div className={style.start}>
+                        <p>Sprawdź swoją wiedzę z filmu {quizData !== undefined ? quizData.title : "Ładowanie..."}</p> {/* P AS ANY MAIN TEXT */}
+                        <div className={style.btn}>
+                            <button onClick={() => setIsPlaying(true)}>START</button> {/* BUTTON AS ANNY INPUT/ OPTION */}
+                        </div>
+                    </div>
                 </>
 
             )}

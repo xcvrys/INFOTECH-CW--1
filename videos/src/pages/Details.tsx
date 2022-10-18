@@ -2,6 +2,7 @@ import React, {FC, useEffect, useState} from "react";
 import {useNavigate, useParams} from 'react-router-dom';
 import Video from "../types/Video";
 import axios from "axios";
+import style from '../styles/css/Details.module.css';
 
 export const Details:FC = () => {
     // hooks
@@ -22,25 +23,26 @@ export const Details:FC = () => {
     },[videoSlug]);
 
     return (
-        <div>
-            <button onClick={() => {navigate('/')}}>go back</button>
-            {selectedVideo !== undefined && (
-                <div key={selectedVideo.slug} style={{borderWidth:5, textAlign:"center"}}>
-                    <h1>opis filmu zajebistego</h1>
-                    <h1>title: {selectedVideo.title}</h1>
-                    <h1>description: {selectedVideo.description}</h1>
-                    <h1>director: {selectedVideo.director}</h1>
-                    <h1>main actors:</h1>
-                    <ul>
-                        {selectedVideo.mainActors.map((a,k) => (<li key={k}>{a}</li>))}
-                    </ul>
-                    <h1>rating: {selectedVideo.rating}&#47;5</h1>
-                    <button onClick={() => {navigate('/quiz/' + selectedVideo.slug!)}}>Play quiz</button>
-                    <br/>
-                    <button onClick={() => {navigate('/leaderboard/' + selectedVideo.slug!)}}>View leaderboard</button>
+            <div className={style.main}>
+                {selectedVideo !== undefined && (
+                    <>
+                <div className={style.content}>
+                    <img src={selectedVideo.thumb} alt={selectedVideo.slug + "_preview"}/>
+                    <h1><a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noreferrer" >{selectedVideo.title}</a></h1>
+                    <div className={style.cast}>
+                        {selectedVideo.mainActors.map((a,k) => (<span key={k}>{a}</span>))}
+                    </div>
+                    <p>{selectedVideo.description}</p>
                 </div>
-            )}
-        </div>
-    )
+                <div className={style.btn}>
+                    <button onClick={() => {navigate('/quiz/' + selectedVideo.slug!)}}>Play quiz</button>
+                </div>
+                <div className={style.btn}>
+                     <button onClick={() => navigate('/leaderboard/' + selectedVideo.slug!)}>View leaderboard</button>
+                </div>
+                </>
+                )}
+            </div>
+        );
 }
 
