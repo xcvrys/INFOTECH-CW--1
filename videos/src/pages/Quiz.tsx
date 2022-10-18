@@ -46,7 +46,7 @@ export const Quiz = () => {
             {!isPlaying && (
                 <>
                     <div className={style.start}>
-                        <p>Sprawdź swoją wiedzę z filmu {quizData !== undefined ? quizData.title : "Ładowanie..."}</p> {/* P AS ANY MAIN TEXT */}
+                        <p>Sprawdź swoją wiedzę z filmu {quizData !== undefined ? quizData.title : "..."}</p> {/* P AS ANY MAIN TEXT */}
                         <div className={style.btn}>
                             <button onClick={() => setIsPlaying(true)}>START</button> {/* BUTTON AS ANNY INPUT/ OPTION */}
                         </div>
