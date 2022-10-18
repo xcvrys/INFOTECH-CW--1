@@ -1,12 +1,12 @@
 import React, { FC, useEffect, useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 import style from '../styles/css/Home.module.css'
 
 export const Home: FC = () => {
     const [movies, setMovies] = useState<{ title: string, description: string }[]>([]);
-    useEffect(() => {
-        axios.get("http://localhost:8080/movies").then(res => setMovies(res.data));
-    }, []);
+    // useEffect(() => {
+    // axios.get("http://localhost:8080/movies").then(res => setMovies(res.data));
+    // }, []);
     return (
         <>
             <h1 className={style.title}>Movies</h1>

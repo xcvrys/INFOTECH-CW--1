@@ -3,7 +3,11 @@
 # RUN SASS
 
 ```bash
+Windows:
 sass -w styles/scss:styles/css
+
+Macos:
+yarn sass -w $(pwd)/styles/scss/:$(pwd)/styles/css/
 ```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
