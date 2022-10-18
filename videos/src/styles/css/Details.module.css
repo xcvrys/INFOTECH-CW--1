@@ -5,6 +5,18 @@
   padding: 2rem;
   margin: 2rem;
 }
+.main .back {
+  margin: 1rem;
+  background-color: hsl(185deg, 8%, 41%);
+  border-radius: 0.5rem;
+  padding: 0.05rem 1rem;
+  fill: hsl(196deg, 4%, 73%);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.main .back:hover {
+  background-color: hsl(180deg, 16%, 12%);
+}
 .main .content {
   display: flex;
   flex-direction: column;
@@ -13,7 +25,6 @@
 }
 .main .content img {
   border-radius: 0.5rem;
-  min-width: 40vw;
   max-width: 50rem;
   max-height: 50rem;
 }

@@ -1,17 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import QuizData from "../types/QuizData";
-import {useNavigate, useParams} from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import style from '../styles/css/Quizz.module.css'
 
 export const Quiz = () => {
     // hooks
-    const {videoSlug} = useParams();
+    const { videoSlug } = useParams();
     const navigate = useNavigate();
 
     // game data
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
-    const [quizData, setQuizData] = useState<QuizData|undefined>();
+    const [quizData, setQuizData] = useState<QuizData | undefined>();
     const [currentQuestion, setCurrentQuestion] = useState<number>(0);
     const [correctAnswers, setCorrectAnswers] = useState<number>(0);
     const [finishedPlaying, setFinishedPlaying] = useState<boolean>(false);
@@ -19,26 +19,24 @@ export const Quiz = () => {
     const [isScorePosted, setScorePosted] = useState<boolean>(false);
     // get questions from the API
     useEffect(() => {
-        axios.get('http://localhost:8080/quiz?slug=' + videoSlug).then(d => setQuizData(d.data)).catch(e => console.log("Connection error "+ e.toString()));
-    },[videoSlug]);
+        axios.get('http://localhost:8080/quiz?slug=' + videoSlug).then(d => setQuizData(d.data)).catch(e => console.log("Connection error " + e.toString()));
+    }, [videoSlug]);
 
     // helper functions to clean up tsx
-    const checkQuestion = (questionID:number, answerID: number) => {
-        if (quizData!.data.questions[questionID].answers[answerID].correct){
-            alert("zajebiscie");
-            setCorrectAnswers(correctAnswers+1);
+    const checkQuestion = (questionID: number, answerID: number) => {
+        if (quizData!.data.questions[questionID].answers[answerID].correct) {
+            setCorrectAnswers(correctAnswers + 1);
         } else {
-            alert("zle lol");
         }
-        if (currentQuestion === quizData!.data.questions.length-1){
+        if (currentQuestion === quizData!.data.questions.length - 1) {
             setFinishedPlaying(true);
             return;
         }
-        setCurrentQuestion(currentQuestion+1);
+        setCurrentQuestion(currentQuestion + 1);
     }
 
     const postScore = () => {
-        axios.post("http://localhost:8080/save_score",{slug: videoSlug, username: username, correctAnswers: correctAnswers}).then(() => setScorePosted(true));
+        axios.post("http://localhost:8080/save_score", { slug: videoSlug, username: username, correctAnswers: correctAnswers }).then(() => setScorePosted(true));
     }
 
     return (
@@ -56,23 +54,32 @@ export const Quiz = () => {
             )}
             {(isPlaying && quizData !== undefined && !finishedPlaying) && (
                 <>
-                    <h1>question number: {currentQuestion+1}</h1>
-                    <h1>{quizData!.data.questions[currentQuestion].title}</h1>
-                    {quizData.data.questions[currentQuestion].answers.map((v,k) => (
-                        <button key={k} onClick={() => checkQuestion(currentQuestion,k)}>{v.title}</button>
-                    ))}
+                    <div className={style.start}>
+                        <span>question number: {currentQuestion + 1}</span>
+                        <p>{quizData!.data.questions[currentQuestion].title}</p>
+                        <div className={style.btn}>
+                            {quizData.data.questions[currentQuestion].answers.map((v, k) => (
+                                <button key={k} onClick={() => checkQuestion(currentQuestion, k)}>{v.title}</button>
+                            ))}
+                        </div>
+                    </div>
                 </>
             )}
             {finishedPlaying && (
                 <>
-                    <h1>game over</h1>
-                    <h1>correct answers {correctAnswers}</h1>
-                    <h1>incorrect answers {quizData!.data.questions.length - correctAnswers}</h1>
-                    <input onInput={e => setUsername(e.currentTarget.value)} placeholder={"your name"}/>
-                    {!isScorePosted && (
-                        <button onClick={() => postScore()}> Save score</button>
-                    )}
-                    <button onClick={() => navigate('/')}>go back</button>
+                    <div className={style.start}>
+
+                        <span>game over</span>
+                        <p>correct answers {correctAnswers}</p>
+                        <p>incorrect answers {quizData!.data.questions.length - correctAnswers}</p>
+                        <input onInput={e => setUsername(e.currentTarget.value)} placeholder={"your name"} />
+                        <div className={style.btn}>
+                            {!isScorePosted && (
+                                <button onClick={() => postScore()}> Save score</button>
+                            )}
+                            <button onClick={() => navigate('/')}>go back</button>
+                        </div>
+                    </div>
                 </>
             )}
         </div>
