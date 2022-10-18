@@ -38,8 +38,13 @@
 }
 .main .btn {
   text-align: right;
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 1rem;
 }
 .main .btn button {
+  display: flex;
+  gap: 0.25rem;
   margin-top: 1rem;
   background-color: hsl(185deg, 8%, 41%);
   text-transform: uppercase;

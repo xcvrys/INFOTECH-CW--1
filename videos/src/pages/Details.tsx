@@ -19,7 +19,22 @@ export const Details: FC = () => {
                     <p>Lorem ipsum dolor sit amet. Quo consequatur consectetur a autem quidem ut quae dicta et voluptatibus sapiente 33 magni dolor et natus fugit? Qui possimus porro sit voluptates dolorem quo aliquam animi nam velit galisum eum laborum esse! Qui modi veritatis hic reprehenderit quidem sed dicta. </p><p>Et quia quas non ratione omnis sit ducimus Quis est doloribus rerum ut quas  est beatae rerum. Non esse architecto et doloremque exercitationem aut illo quia ut iste assumenda nam saepe voluptas id similique aspernatur qui molestiae rerum. </p><p>Ea minima labore aut voluptatem suscipit et quasi voluptatum et neque nihil. Aperiam dolores qui laudantium magni et doloremque quia qui adipisci tempora ad voluptate fugiat. </p><p>Aut saepe mollitia qui deleniti amet vel ullam laudantium aut rerum nostrum eos sint omnis sit voluptatem laudantium. Ex neque veniam non pariatur fuga id omnis laborum et quidem magnam? Rem voluptas perspiciatis rem magnam voluptatem ut doloribus officiis et atque voluptatem ea rerum delectus qui quaerat dicta. Non enim galisum qui fugit minima non minus quos in nulla dolores sed consequatur quasi. </p>
                 </div>
                 <div className={style.btn}>
-                    <button> start quizz </button>
+                    <button>
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 11V3H8v6H2v12h20V11h-6Zm-6-6h4v14h-4V5Zm-6 6h4v8H4v-8Zm16 8h-4v-6h4v6Z"></path>
+                        </svg>
+                        <p>leaderboard</p>
+
+                    </button>
+
+                    <button>
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="m16.315 13.316-7.635 4.43c-.648.376-1.48-.079-1.48-.836V8.05c0-.757.83-1.213 1.48-.836l7.635 4.43a.963.963 0 0 1 0 1.672Z"></path>
+                        </svg>
+                        <p>
+                            start quizz
+                        </p>
+                    </button>
                 </div>
             </div>
         </>
