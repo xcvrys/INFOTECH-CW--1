@@ -15,6 +15,7 @@
     flex-direction: column;
     color: $gray;
     margin: 1rem;
+    gap: 1rem;
 
     span {
       font-size: 1rem;
@@ -24,7 +25,6 @@
     p {
       font-size: 2.25rem;
       font-weight: 700;
-      margin-bottom: 2rem;
     }
 
     .btn {
@@ -50,6 +50,13 @@
           scale: 1.2;
         }
       }
+    }
+    input {
+      outline: none;
+      background-color: $green-100;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      text-align: center;
     }
   }
 }

@@ -13,6 +13,7 @@
   flex-direction: column;
   color: hsl(196deg, 4%, 73%);
   margin: 1rem;
+  gap: 1rem;
 }
 .main .start span {
   font-size: 1rem;
@@ -21,7 +22,6 @@
 .main .start p {
   font-size: 2.25rem;
   font-weight: 700;
-  margin-bottom: 2rem;
 }
 .main .start .btn {
   display: flex;
@@ -44,6 +44,13 @@
 }
 .main .start .btn button:hover {
   scale: 1.2;
+}
+.main .start input {
+  outline: none;
+  background-color: hsl(185deg, 8%, 41%);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
 }
 
 @media screen and (max-width: 768px) {
