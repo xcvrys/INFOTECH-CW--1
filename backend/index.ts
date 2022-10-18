@@ -3,7 +3,6 @@ import morgan from 'morgan';
 import cors from 'cors';
 import {getAllVideosPreview, getQuizLeaderboard, getSelectedQuestions, getSelectedVideo, saveQuizScore} from "./db";
 import {QUIZ_CORRECT_ANSWER_POINTS} from "./consts";
-
 const app = express()
 app.use(morgan('dev'));
 app.use(cors());
