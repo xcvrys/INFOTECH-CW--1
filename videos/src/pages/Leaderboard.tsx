@@ -23,11 +23,13 @@ export const Leaderboard = () => {
         <>
             <h1>{leaderboardData?.title} quiz leaderboard</h1>
             <table>
-                <th>#</th>
-                <th>username</th>
-                <th>score</th>
+                <thead>
+                    <tr>#</tr>
+                    <tr>username</tr>
+                    <tr>score</tr>
+                </thead>
                 {leaderboardData !== undefined && leaderboardData.scores.map((s,k) => (
-                    <tr>
+                    <tr key={k}>
                         <td>{k+1}</td>
                         <td>{s.username}</td>
                         <td>{s.score}</td>

@@ -16,7 +16,6 @@ export const Quiz = () => {
     const [finishedPlaying, setFinishedPlaying] = useState<boolean>(false);
     const [username, setUsername] = useState<string>('');
     const [isScorePosted, setScorePosted] = useState<boolean>(false);
-
     // get questions from the API
     useEffect(() => {
         axios.get('http://localhost:8080/quiz?slug=' + videoSlug).then(d => setQuizData(d.data)).catch(e => console.log("Connection error "+ e.toString()));
@@ -36,9 +35,11 @@ export const Quiz = () => {
         }
         setCurrentQuestion(currentQuestion+1);
     }
+
     const postScore = () => {
         axios.post("http://localhost:8080/save_score",{slug: videoSlug, username: username, correctAnswers: correctAnswers}).then(() => setScorePosted(true));
     }
+
     return (
         <div>
             {!isPlaying && (

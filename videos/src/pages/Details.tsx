@@ -32,7 +32,7 @@ export const Details:FC = () => {
                     <h1>director: {selectedVideo.director}</h1>
                     <h1>main actors:</h1>
                     <ul>
-                        {selectedVideo.mainActors.map(a => (<li>{a}</li>))}
+                        {selectedVideo.mainActors.map((a,k) => (<li key={k}>{a}</li>))}
                     </ul>
                     <h1>rating: {selectedVideo.rating}&#47;5</h1>
                     <button onClick={() => {navigate('/quiz/' + selectedVideo.slug!)}}>Play quiz</button>
